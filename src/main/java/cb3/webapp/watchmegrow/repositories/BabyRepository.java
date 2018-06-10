@@ -1,4 +1,4 @@
-package cb3.webapp.watchmegrow.Repositories;
+package cb3.webapp.watchmegrow.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
