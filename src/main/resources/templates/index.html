@@ -17,13 +17,27 @@
     	    	
     		<div class="panel-body">
     			<div class="table-responsive">
-    				<thead>
-    					<th>Id</th>
-    					<th>Date</th>
-    					<th>Head Size</th>
-    					<th>Length</th>
-    					<th>Weight</th>
-    					<th>Note</th>
+    			<table class="table table-hover">
+    					<thead>
+    						<th>ID</th>
+    						<th>Date</th>
+    						<th>Head size</th>
+    						<th>Weight</th>
+    						<th>Note</th>
+    					</thead>
+    					<tr th:remove="all">
+                            <td>Test ID</td>
+                            <td>Test Date</td>
+                            <td>Test Headsize</td>
+                            <td>Test Weight</td>
+                            <td>Test Note</td>
+                        </tr>
+                        <tr th:each="recipe : ${recipes}">
+                            <td th:text="${recipe.id}">334</td>
+                            <td th:text="${recipe.description}">Tasty Goodnees 3</td>
+                            <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
+                        </tr>
+    				</table>
     			</div>
     		
     		</div>
