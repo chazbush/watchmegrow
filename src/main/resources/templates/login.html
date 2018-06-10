@@ -15,12 +15,16 @@
 
     	<main style="min-height: 500px;">
     	
+    		<div class="alert alert-warning" role="alert">
+				<span th:text="${error}">Static summary</span>
+    		</div>
+    	
    			<div class="row">
-   				<div class="col-lg-6 offset-lg-3 mt-5">
-	    			<form method="post" action="/index">
+   				<div class="col-lg-6 offset-lg-3">
+	    			<form method="POST" action="/login">
 	    				<label for="name" class="">Name:</label>
 	    				<input class="form-control"  type="text" name="name" required />
-	    				<input class="form-control button" type="submit" value="login" />
+	    				<input class="form-control btn btn-primary" type="submit" value="login" />
 	    			</form>
     			</div>
    			</div>
