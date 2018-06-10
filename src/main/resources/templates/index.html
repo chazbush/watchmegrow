@@ -32,10 +32,12 @@
                             <td>Test Weight</td>
                             <td>Test Note</td>
                         </tr>
-                        <tr th:each="recipe : ${recipes}">
-                            <td th:text="${recipe.id}">334</td>
-                            <td th:text="${recipe.description}">Tasty Goodnees 3</td>
-                            <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
+                        <tr th:each="growthrec : ${growthrecs}">
+                            <td th:text="${growthrecs.id}">334</td>
+                            <td th:text="${growthrecs.date}">1999-19-19</td>
+                            <td th:text="${growthrecs.headSize}">20</td>
+                            <td th:text="${growthrecs.weight}">2.6</td>
+                            <td th:text="${growthrecs.note}">test note</td>
                         </tr>
     				</table>
     			</div>

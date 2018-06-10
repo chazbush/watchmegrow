@@ -6,5 +6,5 @@ import cb3.webapp.watchmegrow.models.GrowthRec;
 
 public interface GrowthRecService {
 	Set<GrowthRec> getGrowthRecs();
-
+	
 }

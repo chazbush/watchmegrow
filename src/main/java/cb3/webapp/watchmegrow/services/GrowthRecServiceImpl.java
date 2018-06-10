@@ -8,7 +8,7 @@ import cb3.webapp.watchmegrow.models.GrowthRec;
 import cb3.webapp.watchmegrow.repositories.GrowthRecRepository;
 
 @Service
-public class GrowthRecServiceImpl {
+public class GrowthRecServiceImpl implements GrowthRecService {
 	private final GrowthRecRepository growthRecRepository;
 	
 	public GrowthRecServiceImpl (GrowthRecRepository growthRecRepository) {
@@ -16,7 +16,7 @@ public class GrowthRecServiceImpl {
 		
 	}
 	
-
+	@Override
 	public Set<GrowthRec> getGrowthRecs() {
 		Set<GrowthRec> growthRecSet = new HashSet<>();
 		growthRecRepository.findAll().iterator().forEachRemaining(growthRecSet::add);
