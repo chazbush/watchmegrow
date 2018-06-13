@@ -12,7 +12,7 @@ import cb3.webapp.watchmegrow.services.GrowthRecService;
 @Controller
 public class IndexController {
 	
-	private final GrowthRecService growthRecService;
+	public final GrowthRecService growthRecService;
 	
 	public IndexController (GrowthRecService growthRecService) {
 		this.growthRecService = growthRecService;

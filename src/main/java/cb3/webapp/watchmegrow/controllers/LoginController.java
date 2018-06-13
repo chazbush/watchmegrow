@@ -5,7 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 import cb3.webapp.watchmegrow.services.LoginService;
 
@@ -20,10 +21,11 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String login (@RequestParam String name, Model model) {
+	public String login (@RequestParam String name, Model model,  RedirectAttributes redirectAttributes) {
     	if (loginservice.validateUser(name)) {
-    		model.addAttribute("name", name);
-    		return "index";
+    		redirectAttributes.addAttribute("name", name);
+    		System.out.println("Hi my name is: " +name);
+    		return "redirect:index";
     	}
     	 		
     	else {
