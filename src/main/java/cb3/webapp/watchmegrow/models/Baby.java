@@ -24,7 +24,7 @@ public class Baby {
 	private String Bio;
 	
 	@OneToMany (cascade = CascadeType.ALL, mappedBy = "baby")
-	private Set<GrowthRec> growthrec;
+	private Set<GrowthRecord> growthrec;
 	
 	
 	public long getID() {
@@ -51,10 +51,10 @@ public class Baby {
 	public void setBio(String bio) {
 		Bio = bio;
 	}
-	public Set<GrowthRec> getGrowthrec() {
+	public Set<GrowthRecord> getGrowthrec() {
 		return growthrec;
 	}
-	public void setGrowthrec(Set<GrowthRec> growthrec) {
+	public void setGrowthrec(Set<GrowthRecord> growthrec) {
 		this.growthrec = growthrec;
 	}
 

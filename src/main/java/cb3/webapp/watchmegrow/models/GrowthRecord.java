@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class GrowthRec {
+public class GrowthRecord {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +27,8 @@ public class GrowthRec {
 	public long getID() {
 		return ID;
 	}
-	public void setID(long iD) {
-		ID = iD;
+	public void setID(long Id) {
+		ID = Id;
 	}
 	public Date getDate() {
 		return date;

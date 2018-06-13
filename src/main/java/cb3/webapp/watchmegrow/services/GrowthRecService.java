@@ -2,9 +2,11 @@ package cb3.webapp.watchmegrow.services;
 
 import java.util.Set;
 
-import cb3.webapp.watchmegrow.models.GrowthRec;
+import cb3.webapp.watchmegrow.models.GrowthRecord;
 
 public interface GrowthRecService {
-	Set<GrowthRec> getGrowthRecs();
+	Set<GrowthRecord> getGrowthRecs();
+	
+	long getGrowthRecCount();
 	
 }
