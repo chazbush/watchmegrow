@@ -7,6 +7,8 @@ import cb3.webapp.watchmegrow.models.GrowthRecord;
 public interface GrowthRecService {
 	Set<GrowthRecord> getGrowthRecs();
 	
+	GrowthRecord findById(Long l);
+	
 	long getGrowthRecCount();
 	
 }

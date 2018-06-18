@@ -21,15 +21,15 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String login (@RequestParam String name, Model model,  RedirectAttributes redirectAttributes) {
+	public String login (@RequestParam String name, Model model, final RedirectAttributes redirectAttributes) {
     	if (loginservice.validateUser(name)) {
-    		redirectAttributes.addAttribute("name", name);
-    		System.out.println("Hi my name is: " +name);
+    		redirectAttributes.addFlashAttribute("name", name);
     		return "redirect:index";
     	}
     	 		
     	else {
-    		model.addAttribute("error", "Invalid Name");
+    		model.addAttribute("error", "is an invalid name.");
+    		model.addAttribute("name", name);
     		return "login";
     		
     	}	

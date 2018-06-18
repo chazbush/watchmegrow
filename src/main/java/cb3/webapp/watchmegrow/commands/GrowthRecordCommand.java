@@ -1,18 +1,10 @@
-package cb3.webapp.watchmegrow.models;
+package cb3.webapp.watchmegrow.commands;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
-@Entity
-public class GrowthRecord {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class GrowthRecordCommand {
+
 	private long Id;
 	private Date date;
 	private float weight;
@@ -20,15 +12,12 @@ public class GrowthRecord {
 	private float length;
 	private String note;
 	
-	@ManyToOne
-	private Baby baby;
 	
-	
-	public long getID() {
+	public long getId() {
 		return Id;
 	}
-	public void setID(long Id) {
-		this.Id = Id;
+	public void setId(long id) {
+		Id = id;
 	}
 	public Date getDate() {
 		return date;
@@ -61,5 +50,5 @@ public class GrowthRecord {
 		this.note = note;
 	}
 	
-
+	
 }

@@ -13,13 +13,12 @@
 	
 		<header>Watch Me Grow</header>
 
+		<div th:include="template :: errorMessage"></div>
+
     	<main style="min-height: 500px;">
-    	
-    		<div class="alert alert-warning mt-3" role="alert">
-				<span th:text="${error}">Static summary</span>
-    		</div>
-    	
-   			<div class="row">
+    	 	
+    	  	
+   			<div class="row mt-3">
    				<div class="col-lg-6 offset-lg-3">
 	    			<form method="POST" action="#" th:action="@{/login}">
 	    				<label>Name:</label>

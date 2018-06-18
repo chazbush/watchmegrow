@@ -9,9 +9,15 @@
 			<div class="col-md-4 text-right"><span th:text="'Hello, ' + ${name} + '!'" /></div>
 		</div>
 	</div>
+
+	<div th:fragment="errorMessage">
+		<div class="alert alert-warning mt-3" role="alert" th:if="${param.error}">Invalid name</div>
+	</div>
+	
+	
   
   
-    <div th:fragment="footer">
+    <div th:fragment="footer">	
 		<p class="text-center small" th:text="'&copy cb3 2018'" />
   	</div>
   
