@@ -22,11 +22,6 @@ public class GrowthRecordController {
 		model.addAttribute("growthRecord", growthRecService.findById(new Long(id)));
 		return "/growth/ShowGrowthRecord";
 	}
-	
-	@RequestMapping ("growth/add")
-	public String addGrowthRecord(Model model) {
-		model.addAttribute("GrowthRecord", new GrowthRecordCommand());
-		return "/growth/AddGrowthRecord";
-	}
+
 	
 }

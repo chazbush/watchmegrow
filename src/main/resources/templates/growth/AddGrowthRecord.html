@@ -9,38 +9,43 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container">
-	
-		<header th:include="template :: header">header test</header>
-
-    	<main style="min-height: 500px;">
-    	    	
-    		<div class="mt-5 col-lg-4" >
-    			<form class="form-group" method="POST" th:object="${GrowthRecord}" action="/GrowthRecordController/}">
+	<!-- Modal -->
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="form">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        
+	        <h4 class="modal-title" id="myModalLabel">Add Growth Record</h4>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      </div>
+	      <div class="modal-body">
+	      	<form class="form-group" method="POST" commandName="GrowthRecord" th:object="${GrowthRecord}" action="GrowthRecordController">
     				
-	    			<label for="date">Date:</label>
-	    			<input type="text" class="form-control" id="date" th:field="*{date}" required>
-	    			
-	    			<label for="headsize">Head Size:</label>
-    				<input type="text" class="form-control" id="headsize" th:field="*{headSize}">
-    				
-    				<label for="weight">Weight (lbs)</label>
-    				<input type="text" class="form-control" id="weight" th:field="*{weight}">
-    				
-    				<label for="length">Length (cm):</label>
-    				<input type="text" class="form-control" id="length" th:field="*{length}">
-    				
-    				<label for="note">Note:</label>
-    				<input type="text" class="form-control" id="note" th:field="*{note}">
-    				
-    				<button type="Submit" class="form-control btn btn-primary mt-2">Submit</button>
+    			<label for="date">Date:</label>
+    			<input type="text" class="form-control" id="date" th:field="*{date}" required>
     			
-    			</form>
-   			</div>
-
-		<footer class="footer" th:include="template :: footer">footer test</footer>
-
-    		
-    </div>
+    			<label for="headsize">Head Size:</label>
+   				<input type="text" class="form-control" id="headsize" th:field="*{headSize}">
+   				
+   				<label for="weight">Weight (lbs)</label>
+   				<input type="text" class="form-control" id="weight" th:field="*{weight}">
+   				
+   				<label for="length">Length (cm):</label>
+   				<input type="text" class="form-control" id="length" th:field="*{length}">
+   				
+   				<label for="note">Note:</label>
+   				<input type="text" class="form-control" id="note" th:field="*{note}">
+   				
+   				<button type="Submit" class="form-control btn btn-primary mt-2">Submit</button>
+    			
+    	  	</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>   		
 </body>
 </html>

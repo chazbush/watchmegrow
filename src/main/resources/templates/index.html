@@ -20,49 +20,57 @@
     		<div class="panel-body mt-5">
     			<div class="table-responsive">
 	    			<table class="table table-hover">
-	    					<thead>
-	    						<th>ID</th>
-	    						<th>Date</th>
-	    						<th>Head size (cm)</th>
-	    						<th>Weight (lbs)</th>
-	    						<th>Length (in)</th>
-	    						<th>Notes</th>
-	    						<th><a href="growth/add">Add</a></th>
-	    					</thead>
-	    					<tr th:remove="all">
-	                            <td>Test ID</td>
-	                            <td>Test Date</td>
-	                            <td>Test Head Size</td>
-	                           	<td>Test Weight</td>
-	                            <td>Test Length</td>
-	                            <td>Test Note</td>
-	                        </tr>
-	                        <th:block th:each="growthrec : ${growthrecs}">
-	                        <tr>
-	                        	<td th:text="${growthrec.ID}">12345</td>
-	                            <td th:text="${#dates.format(growthrec.date, 'dd-MMM-yyyy')}"}>1999-19-19</td>
-	                            <td th:text="${growthrec.headSize}">20</td>
-	                            <td th:text="${growthrec.weight}">2.6</td>
-	                            <td th:text="${growthrec.length}">20</td>
-	                            <td th:text="${growthrec.note}">test note</td>
-	                            <td><a href="#" th:href="@{'/growth/show/' + ${growthrec.ID}}">Edit</a></td>
-	                        </tr>
-	    				</table>
-    			</div>
-				<div class="panel-body">
-					<small>Number of growth records: <span th:text="${count}">count</span>	</small>
-				</div>
-				
-				
-				
-
-    		
+	    				<caption><small>Number of growth records: <span th:text="${count}">count</span></small></caption>
+    					<thead>
+    						<th>ID</th>
+    						<th>Date</th>
+    						<th>Head size (cm)</th>
+    						<th>Weight (lbs)</th>
+    						<th>Length (in)</th>
+    						<th>Notes</th>
+    						<th><button type="button" class="btn btn-primary btn-sm" th:onclick="'javascript:addGrowthRecord;'" data-target="/growth/AddGrowthRecord">Add Growth Record</button></th>
+    					</thead>
+    					<tr th:remove="all">
+                            <td>Test ID</td>
+                            <td>Test Date</td>
+                            <td>Test Head Size</td>
+                           	<td>Test Weight</td>
+                            <td>Test Length</td>
+                            <td>Test Note</td>
+                        </tr>
+                        <th:block th:each="growthrec : ${growthrecs}">
+                        <tr>
+                        	<td th:text="${growthrec.ID}">12345</td>
+                            <td th:text="${#dates.format(growthrec.date, 'dd-MMM-yyyy')}"}>1999-19-19</td>
+                            <td th:text="${growthrec.headSize}">20</td>
+                            <td th:text="${growthrec.weight}">2.6</td>
+                            <td th:text="${growthrec.length}">20</td>
+                            <td th:text="${growthrec.note}">test note</td>
+                            <td><a href="#" th:href="@{'/growth/show/' + ${growthrec.ID}}">Edit</a></td>
+                        </tr>
+    				</table>
+    			</div>   		
     		</div>
-    		   	
+    		
+    		<div id="AddGrowthRecordModal"><</div>
+
+	
+	
+    		   
     	
     	</main>
     	
 		<footer class="footer" th:include="template :: footer">1234</footer>
+		
+		<script>
+		function addGrowthRecord()
+		$.ajax({
+			url: "/growth/add",
+			success: function(data){
+				$("#AddGrowthRecord").html(data);
+				$("")
+			}
+		})</script>
 
 	</div>
 </body>
