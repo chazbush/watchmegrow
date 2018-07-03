@@ -28,7 +28,7 @@
     						<th>Weight (lbs)</th>
     						<th>Length (in)</th>
     						<th>Notes</th>
-    						<th><button type="button" class="btn btn-primary btn-sm" th:onclick="'javascript:addGrowthRecord;'" data-target="/growth/AddGrowthRecord">Add Growth Record</button></th>
+    						<th><button type="button" class="btn btn-primary btn-sm" th:onclick="" data-target="">Add Growth Record</button></th>
     					</thead>
     					<tr th:remove="all">
                             <td>Test ID</td>
@@ -52,7 +52,7 @@
     			</div>   		
     		</div>
     		
-    		<div id="AddGrowthRecordModal"><</div>
+    		<div id="AddGrowthRecordModal"></div>
 
 	
 	
@@ -65,9 +65,9 @@
 		<script>
 		function addGrowthRecord()
 		$.ajax({
-			url: "/growth/add",
+			url: "/growth/addGrowthRecord",
 			success: function(data){
-				$("#AddGrowthRecord").html(data);
+				$("#AddGrowthRecordModal").html(data);
 				$("")
 			}
 		})</script>
