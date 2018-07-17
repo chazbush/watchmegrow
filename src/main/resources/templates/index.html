@@ -28,7 +28,7 @@
     						<th>Weight (lbs)</th>
     						<th>Length (in)</th>
     						<th>Notes</th>
-    						<th><button type="button" class="btn btn-primary btn-sm" th:onclick="" data-target="">Add Growth Record</button></th>
+    						<th><a href="#" class="btn-sm" style="padding-left: 0;" data-toggle="modal" data-target="#addUpdateRecord">Add Record</a></th>
     					</thead>
     					<tr th:remove="all">
                             <td>Test ID</td>
@@ -52,7 +52,59 @@
     			</div>   		
     		</div>
     		
-    		<div id="AddGrowthRecordModal"></div>
+	  
+	  <!-- Modal -->
+	  <div class="modal fade" id="addUpdateRecord" tabindex="-1" role="dialog" aria-labelledby="growthForm" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="growthForm">Add Growth Record</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<form class="container">
+					<div class="form-group row">
+						<label for="date" class="col-lg-3 offset-lg-2 text-right">Date:</label>
+						<div class="col-lg-5">
+							<input type="date" class="form-control" id="date">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="headSize" class="col-lg-3 offset-lg-2 text-right">Head Size:</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" id="headSize">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="weight" class="col-lg-3 offset-lg-2 text-right">Weight:</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" id="weight">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="length" class="col-lg-3 offset-lg-2 text-right">Length:</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" id="length">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="note" class="col-lg-3 offset-lg-2 text-right">Note:</label>
+						<div class="col-lg-5">
+							<textarea class="form-control" id="note"></textarea>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			  <button type="button" class="btn btn-primary">Add Record</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 
 	
 	
@@ -61,17 +113,6 @@
     	</main>
     	
 		<footer class="footer" th:include="template :: footer">1234</footer>
-		
-		<script>
-		function addGrowthRecord()
-		$.ajax({
-			url: "/growth/addGrowthRecord",
-			success: function(data){
-				$("#AddGrowthRecordModal").html(data);
-				$("")
-			}
-		})</script>
-
 	</div>
 </body>
 </html>
