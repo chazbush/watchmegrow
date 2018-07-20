@@ -27,8 +27,9 @@
     						<th>Head size (cm)</th>
     						<th>Weight (lbs)</th>
     						<th>Length (in)</th>
-    						<th>Notes</th>
-    						<th><a href="#" class="btn-sm" style="padding-left: 0;" data-toggle="modal" data-target="#addUpdateRecord">Add Record</a></th>
+							<th>Notes</th>
+							<th><a href="#" th:href="@{'/add'}" class="btn-sm" style="padding-left: 0;">Add Record</a></th>
+    						<!--/* <th><a href="#" class="btn-sm" style="padding-left: 0;" data-toggle="modal" data-target="#addUpdateRecord">Add Record</a></th> */-->
     					</thead>
     					<tr th:remove="all">
                             <td>Test ID</td>

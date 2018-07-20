@@ -2,7 +2,9 @@ package cb3.webapp.watchmegrow.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cb3.webapp.watchmegrow.commands.GrowthRecordCommand;
@@ -21,7 +23,7 @@ public class IndexController {
 	}
 	
 	
-	@RequestMapping ({"/index"})
+	@GetMapping ({"/index"})
 	public String getIndexPage(@ModelAttribute("name") final String name, Model model) {
 		
 	model.addAttribute("growthrecs", growthRecService.getGrowthRecs());
@@ -31,9 +33,8 @@ public class IndexController {
 	
 	}
 	
-	@RequestMapping ("growth/add")
-	public String addGrowthRecord(Model model) {
-	model.addAttribute("GrowthRecord", new GrowthRecordCommand());
+	@PostMapping ("/add")
+	public String addGrowthRecord(@ModelAttribute GrowthRecordCommand growthRecordCommand) {
 	return "/growth/AddGrowthRecord";
 	
 	}
