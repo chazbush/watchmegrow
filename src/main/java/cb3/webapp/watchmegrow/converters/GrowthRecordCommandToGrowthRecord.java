@@ -24,6 +24,7 @@ public class GrowthRecordCommandToGrowthRecord implements Converter<GrowthRecord
 		final GrowthRecord growthRecord = new GrowthRecord();
 		growthRecord.setID(source.getId());
 		growthRecord.setDate(source.getDate());
+		growthRecord.setWeight(source.getWeight());
 		growthRecord.setHeadSize(source.getHeadSize());
 		growthRecord.setLength(source.getLength());
 		growthRecord.setNote(source.getNote());
