@@ -27,9 +27,9 @@
     						<th>Head size (cm)</th>
     						<th>Weight (lbs)</th>
     						<th>Length (in)</th>
-							<th>Notes</th>
-							<th><a href="#" th:href="@{'/add'}" class="btn-sm" style="padding-left: 0;">Add Record</a></th>
-    						<!--/* <th><a href="#" class="btn-sm" style="padding-left: 0;" data-toggle="modal" data-target="#addUpdateRecord">Add Record</a></th> */-->
+								<th>Notes</th>
+							<!-- <th><a href="#" th:href="@{'/add'}" class="btn-sm" style="padding-left: 0;">Add Record</a></th> -->
+    						<th><a href="#" class="btn-sm" style="padding-left: 0;" data-toggle="modal" data-target="#addUpdateRecord">Add Record</a></th>
     					</thead>
     					<tr th:remove="all">
                             <td>Test ID</td>
@@ -39,15 +39,15 @@
                             <td>Test Length</td>
                             <td>Test Note</td>
                         </tr>
-                        <th:block th:each="growthrec : ${growthrecs}">
+                        <th:block th:each="growth : ${growths}">
                         <tr>
-                        	<td th:text="${growthrec.ID}">12345</td>
-                            <td th:text="${#dates.format(growthrec.date, 'dd-MMM-yyyy')}"}>1999-19-19</td>
-                            <td th:text="${growthrec.headSize}">20</td>
-                            <td th:text="${growthrec.weight}">2.6</td>
-                            <td th:text="${growthrec.length}">20</td>
-                            <td th:text="${growthrec.note}">test note</td>
-                            <td><a href="#" th:href="@{'/growth/show/' + ${growthrec.ID}}">Edit</a></td>
+                        	<td th:text="${growth.ID}">12345</td>
+                            <td th:text="${#dates.format(growth.date, 'dd-MMM-yyyy')}"}>1999-19-19</td>
+                            <td th:text="${growth.headSize}">20</td>
+                            <td th:text="${growth.weight}">2.6</td>
+                            <td th:text="${growth.length}">20</td>
+                            <td th:text="${growth.note}">test note</td>
+                            <td><a href="#" th:href="@{'/growth/show/' + ${growth.ID}}">Edit</a></td>
                         </tr>
     				</table>
     			</div>   		
@@ -65,7 +65,7 @@
 			  </button>
 			</div>
 			<div class="modal-body">
-				<form class="container">
+				<form class="container" id="addUpdateForm" th:object="${growth}">
 					<div class="form-group row">
 						<label for="date" class="col-lg-3 offset-lg-2 text-right">Date:</label>
 						<div class="col-lg-5">
@@ -97,12 +97,13 @@
 						</div>
 					</div>
 
-				</form>
 			</div>
 			<div class="modal-footer">
 			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			  <button type="button" class="btn btn-primary">Add Record</button>
+			  <button type="submit" class="btn btn-primary">Add Record</button>
 			</div>
+		</form>
+
 		  </div>
 		</div>
 	  </div>
@@ -115,5 +116,50 @@
     	
 		<footer class="footer" th:include="template :: footer">1234</footer>
 	</div>
+
+		<script>
+		$('#login-form').on('submit', function(event){
+
+			var self = this;
+			var form = $(this);
+			var errorMsg = $('#errorMsg');
+
+
+			if (form.data('requestRunning')) {
+					return;
+			}
+
+			form.data('requestRunning', true);
+			event.preventDefault();
+			$.ajax({
+					url: form.attr("action"),
+					type: form.attr("method"),
+					data: form.serialize(),
+					success: function(result){
+
+						console.log(result.login);
+						if(result.login == undefined){
+								self.submit();
+						}else{
+								errorMsg.text(result.login.FAILURE).addClass("alert alert-danger");
+								agitar('#errorMsg');
+						}
+
+					},
+					complete: function (e) {               
+							form.data('requestRunning', false);
+				}
+
+					});
+
+		});
+
+		</script>
+Here i'm using spring-security to validate my user login, but if you only want to update your DB, in the form action you can put the url that you want to use to call your controller i.e: "/updateDB" and declare a controller i.e:
+
+@RequestMapping("/updateDB", method=RequestMethod.POST)
+public String updateDB(@ModelAttribute("dataToUpdate")DataToUpdate dataToUpdate){
+   //do whathever you want
+}
 </body>
 </html>

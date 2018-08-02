@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class GrowthRecord {
+public class Growth {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

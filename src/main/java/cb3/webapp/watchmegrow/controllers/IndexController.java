@@ -1,41 +1,33 @@
 package cb3.webapp.watchmegrow.controllers;
 
+import cb3.webapp.watchmegrow.commands.GrowthCommand;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import cb3.webapp.watchmegrow.commands.GrowthRecordCommand;
-import cb3.webapp.watchmegrow.services.GrowthRecService;
+import cb3.webapp.watchmegrow.services.GrowthService;
 
 
 @Controller
 public class IndexController {
 	
-	public final GrowthRecService growthRecService;
-
+	public final GrowthService growthService;
 	
-	
-	public IndexController (GrowthRecService growthRecService) {
-		this.growthRecService = growthRecService;
+	public IndexController (GrowthService growthService) {
+		this.growthService = growthService;
 	}
 	
 	
 	@GetMapping ({"/index"})
 	public String getIndexPage(@ModelAttribute("name") final String name, Model model) {
 		
-	model.addAttribute("growthrecs", growthRecService.getGrowthRecs());
-	model.addAttribute("count", growthRecService.getGrowthRecCount());
+	model.addAttribute("growth", growthService.getGrowth());
+	model.addAttribute("count", growthService.getGrowthCount());
 	model.addAttribute("name", name);
+	model.addAttribute("growthCommand", new GrowthCommand());
 	return "index";
 	
 	}
 	
-	@PostMapping ("/add")
-	public String addGrowthRecord(@ModelAttribute GrowthRecordCommand growthRecordCommand) {
-	return "/growth/AddGrowthRecord";
-	
-	}
 }

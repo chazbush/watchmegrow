@@ -2,8 +2,10 @@ package cb3.webapp.watchmegrow.commands;
 
 import java.util.Date;
 
+import lombok.NoArgsConstructor;
 
-public class GrowthRecordCommand {
+@NoArgsConstructor
+public class GrowthCommand {
 
 	private long Id;
 	private Date date;
@@ -49,6 +51,6 @@ public class GrowthRecordCommand {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	
+
 	
 }

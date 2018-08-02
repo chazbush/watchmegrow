@@ -15,12 +15,12 @@
 
     	<main style="min-height: 500px;">	
     	    	
-    		<form th:action="@{/add}" th:object="${growthRecord}" method="POST"  class="container" >
+    		<form th:action="@{/add}" th:object="${growth}" method="POST"  class="container" >
 				
 				<div class="form-group row">
 					<label for="date" class="col-lg-3 offset-lg-1 text-right">Date:</label>
 					<div class="col-lg-5">
-						<input class="form-control" type="text" th:value="${#dates.format(growthRecord.date, 'dd-MMM-yyyy')}" id="date" />
+						<input class="form-control" type="text" th:value="${#dates.format(growth.date, 'dd-MMM-yyyy')}" id="date" />
 					</div>
 				</div>
 
@@ -28,23 +28,23 @@
 				<div class="form-group row">
 					<label for="headSize" class="col-lg-3 offset-lg-1 text-right">Head Size:</label>
 					<div class="col-lg-5">
-						<input class="form-control form-control-sm" type="text" th:value="${growthRecord.headSize}" id="headSize" />
+						<input class="form-control form-control-sm" type="text" th:value="${growth.headSize}" id="headSize" />
 					</div>
 				</div>
 				
 				<div class="form-group row">
 					<label for="weight">Weight:</label>
-					<input class="form-control-sm" type="text" th:value="${growthRecord.weight}" id="weight" />
+					<input class="form-control-sm" type="text" th:value="${growth.weight}" id="weight" />
 				</div>
 
 				<div class="form-group row">
 					<label for="length">Length:</label>
-					<input class="form-control" type="text" th:value="${growthRecord.length}" id="length" />
+					<input class="form-control" type="text" th:value="${growth.length}" id="length" />
 				</div>
 				
 				<div class="form-group row">
 					<label for="note">Note:</label>
-					<input class="form-control" type="text" th:value="${growthRecord.note}" id="note" />		
+					<input class="form-control" type="text" th:value="${growth.note}" id="note" />
 				</div>
    			</div>
 
