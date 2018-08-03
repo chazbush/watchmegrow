@@ -22,7 +22,7 @@ public class GrowthCommandToGrowth implements Converter<GrowthCommand, Growth> {
 		}
 
 		final Growth growth = new Growth();
-		growth.setID(source.getId());
+		growth.setId(source.getId());
 		growth.setDate(source.getDate());
 		growth.setWeight(source.getWeight());
 		growth.setHeadSize(source.getHeadSize());

@@ -24,7 +24,7 @@ public class GrowthToGrowthCommand implements Converter<Growth, GrowthCommand>{
         }
 
         final GrowthCommand command = new GrowthCommand();
-            command.setId(source.getID());
+            command.setId(source.getId());
             command.setWeight(source.getWeight());
             command.setHeadSize(source.getHeadSize());
             command.setLength(source.getLength());
